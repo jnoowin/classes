@@ -22,7 +22,7 @@ function School({ name, classes }: SchoolProps) {
           } w-5 h-5 text-white self-center`}
         />
       </Disclosure.Button>
-      <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500">
+      <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-gray-500 rounded-lg bg-white">
         If you're unhappy with your purchase for any reason, email us within 90
         days and we'll refund you in full, no questions asked.
       </Disclosure.Panel>
@@ -30,7 +30,7 @@ function School({ name, classes }: SchoolProps) {
   );
 
   return (
-    <div className="w-full md:max-w-5xl p-2 mx-auto bg-white rounded-2xl my-2">
+    <div className="w-full md:max-w-5xl p-2 mx-auto my-2">
       <Disclosure>{schoolRenderProp}</Disclosure>
     </div>
   );

@@ -12,9 +12,9 @@ const Home: NextPage = () => {
 
   return (
     <div className="bg-poop h-screen w-screen flex flex-col items-center justify-center">
-      <h1 className="text-4xl">Browse by Schools</h1>
+      <h1 className="text-4xl font-semibold">Browse by Schools</h1>
       {SCHOOLS.map((school) => (
-        <School name={school} classes={[]} />
+        <School key={school} name={school} classes={[]} />
       ))}
     </div>
   );
