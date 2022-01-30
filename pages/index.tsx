@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <div className="h-screen w-screen flex flex-col items-center justify-center">
+      <div className="h-screen flex flex-col items-center justify-center">
         <h1 className="text-4xl font-semibold min-w-min">Browse by Schools</h1>
         {SCHOOLS.map((school) => (
           <School key={school} name={school} classes={[]} />
