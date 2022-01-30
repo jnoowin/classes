@@ -11,7 +11,6 @@ module.exports = {
         bone: "#e6dfd5",
         rajah: "#ffad69",
         "dark-orange": "#f58f29",
-        poop: "#ebebeb",
       },
     },
   },

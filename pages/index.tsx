@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import School from "../components/school";
+import Layout from "../components/layout";
 
 const Home: NextPage = () => {
   const SCHOOLS: string[] = [
@@ -11,12 +12,14 @@ const Home: NextPage = () => {
   ];
 
   return (
-    <div className="bg-poop h-screen w-screen flex flex-col items-center justify-center">
-      <h1 className="text-4xl font-semibold">Browse by Schools</h1>
-      {SCHOOLS.map((school) => (
-        <School key={school} name={school} classes={[]} />
-      ))}
-    </div>
+    <Layout>
+      <div className="h-screen w-screen flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-semibold min-w-min">Browse by Schools</h1>
+        {SCHOOLS.map((school) => (
+          <School key={school} name={school} classes={[]} />
+        ))}
+      </div>
+    </Layout>
   );
 };
 
