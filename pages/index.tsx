@@ -13,11 +13,18 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <div className="h-screen flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-semibold min-w-min">Browse by Schools</h1>
-        {SCHOOLS.map((school) => (
-          <School key={school} name={school} classes={[]} />
-        ))}
+      <div className="h-screen flex flex-col items-center">
+        <h1 className="text-4xl font-semibold mb-5">Browse by Schools</h1>
+        <main className="bg-white mx-auto w-full md:max-w-5xl p-2 rounded-2xl">
+          {SCHOOLS.map((school, index) => (
+            <div
+              className={`${index == SCHOOLS.length - 1 ? "" : "mb-2"}`}
+              key={index}
+            >
+              <School key={school} name={school} classes={[]} />
+            </div>
+          ))}
+        </main>
       </div>
     </Layout>
   );
