@@ -7,42 +7,34 @@ import { CookieJar } from "tough-cookie";
 import { parse } from "node-html-parser";
 
 export async function getStaticProps() {
-  const result = { props: {} };
-  try {
-    const jar = new CookieJar();
-    const client = wrapper(axios.create({ jar }));
+  const jar = new CookieJar();
+  const client = wrapper(axios.create({ jar }));
 
-    await client.head("https://sisuva.admin.virginia.edu/ihprd/signon.html");
-    const html = (
-      await client.get(
-        "https://sisuva.admin.virginia.edu/psc/ihprd/UVSS/SA/s/WEBLIB_HCX_CM.H_CLASS_SEARCH.FieldFormula.IScript_Main"
-      )
-    ).data;
+  await client.head("https://sisuva.admin.virginia.edu/ihprd/signon.html");
+  const html = (
+    await client.get(
+      "https://sisuva.admin.virginia.edu/psc/ihprd/UVSS/SA/s/WEBLIB_HCX_CM.H_CLASS_SEARCH.FieldFormula.IScript_Main"
+    )
+  ).data;
 
-    const classSearchScripts = parse(html).querySelectorAll("script");
-    const searchCriteriaScript = classSearchScripts.find(
-      (script) => script.innerText.indexOf("window.highpoint") >= 0
-    );
+  const classSearchScripts = parse(html).querySelectorAll("script");
+  const searchCriteriaScript = classSearchScripts.find(
+    (script) => script.innerText.indexOf("window.highpoint") >= 0
+  );
 
-    if (!searchCriteriaScript) throw "searchCriteraScript is null";
+  if (!searchCriteriaScript) throw "searchCriteraScript is null";
 
-    const searchCriteriaInnerText: string = searchCriteriaScript.innerText;
-    const objectIndex: number = searchCriteriaScript.innerText.indexOf("{");
-    const schedule = JSON.parse(searchCriteriaInnerText.slice(objectIndex, -1));
+  const searchCriteriaInnerText: string = searchCriteriaScript.innerText;
+  const objectIndex: number = searchCriteriaScript.innerText.indexOf("{");
+  const schedule = JSON.parse(searchCriteriaInnerText.slice(objectIndex, -1));
 
-    result.props = {
+  return {
+    props: {
       success: true,
       acad_groups: schedule.search_options.acad_groups,
       subjects: schedule.search_options.subjects,
-    };
-  } catch (error) {
-    result.props = {
-      success: false,
-      acad_groups: {},
-      subjects: {},
-    };
-  }
-  return result;
+    },
+  };
 }
 
 type AcadGroup = {
