@@ -22,7 +22,7 @@ export async function getStaticProps() {
     (script) => script.innerText.indexOf("window.highpoint") >= 0
   );
 
-  if (!searchCriteriaScript) throw "searchCriteraScript is null";
+  if (!searchCriteriaScript) throw "searchCriteriaScript is null";
 
   const searchCriteriaInnerText: string = searchCriteriaScript.innerText;
   const objectIndex: number = searchCriteriaScript.innerText.indexOf("{");
@@ -60,7 +60,7 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ success, acad_groups, subjects }) => {
   return (
     <Layout>
-      <div className="flex flex-col items-center pt-10">
+      <div className="flex flex-col items-center bg-neutral-100 pt-10">
         <h1 className="text-4xl font-semibold mb-5">Browse by Schools</h1>
         <main className="bg-white w-full md:max-w-5xl p-2 rounded-2xl">
           {acad_groups.map(({ acad_group, descr }: AcadGroup, index) => (
