@@ -62,10 +62,10 @@ const Home: NextPage<HomeProps> = ({ success, acad_groups, subjects }) => {
     <Layout>
       <div className="flex flex-col items-center bg-neutral-100 pt-10">
         <h1 className="text-4xl font-semibold mb-5">Browse by Schools</h1>
-        <main className="bg-white w-full md:max-w-5xl p-2 rounded-2xl">
+        <main className="w-full md:max-w-5xl p-4">
           {acad_groups.map(({ acad_group, descr }: AcadGroup, index) => (
             <div
-              className={`${index == acad_groups.length - 1 ? "" : "mb-2"}`}
+              className={`${index < acad_groups.length - 1 ? "mb-4" : ""}`}
               key={index}
             >
               <School key={descr} name={descr} classes={[]} />
