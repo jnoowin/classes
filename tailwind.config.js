@@ -12,6 +12,9 @@ module.exports = {
         rajah: "#ffad69",
         "dark-orange": "#f58f29",
       },
+      transitionProperty: {
+        "max-height": "max-height",
+      },
     },
   },
   plugins: [],

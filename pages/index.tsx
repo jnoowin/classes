@@ -61,7 +61,7 @@ const Home: NextPage<HomeProps> = ({ success, acad_groups, subjects }) => {
   return (
     <Layout>
       <h1 className="text-4xl font-semibold mb-5">Browse by Schools</h1>
-      <main className="w-full md:max-w-5xl p-4">
+      <section className="w-full md:max-w-5xl p-4">
         {acad_groups.map(({ acad_group, descr }: AcadGroup, index) => (
           <div
             className={`${index < acad_groups.length - 1 ? "mb-4" : ""}`}
@@ -70,7 +70,7 @@ const Home: NextPage<HomeProps> = ({ success, acad_groups, subjects }) => {
             <School key={descr} name={descr} classes={[]} />
           </div>
         ))}
-      </main>
+      </section>
     </Layout>
   );
 };

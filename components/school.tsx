@@ -26,9 +26,12 @@ function School({ name, classes }: SchoolProps) {
       </Disclosure.Button>
       <Transition
         as={React.Fragment}
-        enter="transition-all"
-        enterFrom="transform h-0"
-        enterTo="transform h-10"
+        enter="transition-max-height duration-300"
+        enterFrom="transform max-h-0"
+        enterTo="transform max-h-96"
+        leave="transition-max-height duration-150"
+        leaveFrom="transform max-h-96"
+        leaveTo="transform max-h-0"
       >
         <Disclosure.Panel className="px-4 mt-2 text-sm overflow-hidden rounded-lg shadow-lg text-gray-500 bg-white">
           If you're unhappy with your purchase for any reason, email us within
@@ -38,7 +41,22 @@ function School({ name, classes }: SchoolProps) {
           your purchase for any reason, email us within 90 days and we'll refund
           you in full, no questions asked. If you're unhappy with your purchase
           for any reason, email us within 90 days and we'll refund you in full,
-          no questions asked.
+          no questions asked. If you're unhappy with your purchase for any
+          reason, email us within 90 days and we'll refund you in full, no
+          questions asked. If you're unhappy with your purchase for any reason,
+          email us within 90 days and we'll refund you in full, no questions
+          asked. If you're unhappy with your purchase for any reason, email us
+          within 90 days and we'll refund you in full, no questions asked. If
+          you're unhappy with your purchase for any reason, email us within 90
+          days and we'll refund you in full, no questions asked. If you're
+          unhappy with your purchase for any reason, email us within 90 days and
+          we'll refund you in full, no questions asked. If you're unhappy with
+          your purchase for any reason, email us within 90 days and we'll refund
+          you in full, no questions asked. If you're unhappy with your purchase
+          for any reason, email us within 90 days and we'll refund you in full,
+          no questions asked. If you're unhappy with your purchase for any
+          reason, email us within 90 days and we'll refund you in full, no
+          questions asked.
         </Disclosure.Panel>
       </Transition>
     </>
