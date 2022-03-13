@@ -14,7 +14,7 @@ interface DisclosureOpen {
 function School({ name, classes }: SchoolProps) {
   const schoolRenderProp = ({ open = true }: DisclosureOpen) => (
     <>
-      <Disclosure.Button className="w-full p-3 flex justify-between rounded-lg bg-midnight-blue  hover:bg-blue-900">
+      <Disclosure.Button className="w-full p-3 flex justify-between rounded-lg bg-space-cadet  hover:bg-blue-900">
         <span className="text-lg sm:text-2xl font-medium text-left text-white">
           {name}
         </span>
