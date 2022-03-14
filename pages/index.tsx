@@ -10,7 +10,6 @@ export async function getStaticProps() {
   const jar = new CookieJar();
   const client = wrapper(axios.create({ jar }));
 
-  await client.head("https://sisuva.admin.virginia.edu/ihprd/signon.html");
   const html = (
     await client.get(
       "https://sisuva.admin.virginia.edu/psc/ihprd/UVSS/SA/s/WEBLIB_HCX_CM.H_CLASS_SEARCH.FieldFormula.IScript_Main"
@@ -60,7 +59,7 @@ const Home: NextPage<HomeProps> = ({ success, acad_groups, subjects }) => {
   return (
     <Layout>
       <section className="w-full md:max-w-5xl p-4">
-        <h1 className="text-4xl font-semibold mb-6">Browse by Schools</h1>
+        <h1 className="text-4xl mb-6">Browse by Schools</h1>
         {acad_groups.map(({ acad_group, descr }: AcadGroup, index) => (
           <div
             className={`${index < acad_groups.length - 1 ? "mb-4" : ""}`}
